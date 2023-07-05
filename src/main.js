@@ -1,9 +1,26 @@
 import { createApp } from 'vue';
+import PrimeVue from 'primevue/config';
+
 import { createRouter, createWebHistory } from 'vue-router';
 import { routes} from "./routes.js";
 
+//theme
+import "primevue/resources/themes/lara-light-indigo/theme.css";
+
+//core
+import "primevue/resources/primevue.min.css";
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+
 import './style.css'
 import App from './App.vue'
+
+import Button from 'primevue/button';
+import Menubar from 'primevue/menubar';
+import Sidebar from 'primevue/sidebar';
+import DataView from 'primevue/dataview';
+import Card from 'primevue/card';
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,4 +29,10 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
+app.use(PrimeVue, { inputStyle: "filled" });
+app.component('Button', Button);
+app.component('Menubar', Menubar);
+app.component('Sidebar', Sidebar);
+app.component('DataView', DataView);
+app.component('Card', Card);
 app.mount('#app')
