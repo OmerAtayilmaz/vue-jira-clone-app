@@ -21,6 +21,7 @@ import Sidebar from 'primevue/sidebar';
 import DataView from 'primevue/dataview';
 import Card from 'primevue/card';
 import Dialog from 'primevue/dialog';
+import InputText from 'primevue/inputtext';
 
 
 const router = createRouter({
@@ -37,4 +38,5 @@ app.component('Sidebar', Sidebar);
 app.component('DataView', DataView);
 app.component('Card', Card);
 app.component('Dialog', Dialog);
+app.component('InputText', InputText);
 app.mount('#app')

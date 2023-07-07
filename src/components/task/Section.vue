@@ -11,7 +11,7 @@ const openCreateModal = ($e) => {
 <template>
     <div class="col-2 section">
         <h4>{{ listData.name }}</h4>
-        <Button label="Add a cart" severity="secondary" text @click="$emit('updateModalStatus')" />
+        <Button label="Create Task" severity="secondary" text @click="$emit('updateModalStatus')" />
         <div class="section--tasks" >
             <item v-for="singleTask in listData.tasks" :key="singleTask.id" :single-task="singleTask"/>
         </div>

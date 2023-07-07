@@ -1,8 +1,10 @@
 <template>
     <Teleport to="#modalPosition">
-        <Dialog v-model:visible="props.modalStatus" modal  @update:visible="$emit('closeModal')"  :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '641px': '100vw' }">
+        <Dialog v-model:visible="props.modalStatus" modal  @update:visible="$emit('closeModal')"  :style="{ width: '30vw' }" :breakpoints="{ '960px': '75vw', '641px': '100vw' }">
+            <div style="padding:15px 0;">               
+                <slot/>
+            </div>
     
-           <slot/>
         </Dialog>
     </Teleport>
 </template>

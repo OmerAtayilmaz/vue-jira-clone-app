@@ -1,9 +1,13 @@
 <template>
    <TaskCreateModal :modalStatus="modalStatus" @closeModal="updateStatus"> 
       <p>
-                Ben artık dinamik bir modalım
+         <span class="p-float-label">
+            <InputText id="task" v-model="value" />
+            <label for="task">Task</label>
+         </span>
       </p>
-      </TaskCreateModal>
+      <Button label="Create Task" severity="primary" />
+   </TaskCreateModal>
    <BoardContainer @updateModalStatus="updateStatus" />
 </template>
 <script setup>
