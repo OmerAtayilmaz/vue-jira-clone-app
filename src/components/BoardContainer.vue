@@ -2,11 +2,11 @@
 import { ref } from 'vue';
 import TaskSection from './task/Section.vue';
 
-const props = defineProps([ "sections" ]);
+const props = defineProps([ "sections","updateStatus" ]);
 </script>
 <template>
     <div class="container">
-        <task-section  v-for="section in props.sections" :list-data="section.tasks" :title="section.name" :key="section.id" @updateModalStatus="$emit('updateModalStatus')"/>
+        <task-section  v-for="section in props.sections" :list-data="section.tasks" :title="section.name" :section-type="section.type" :key="section.id" @updateModalStatus="$emit('updateModalStatus')"/>
     </div>
 </template>
 <style scoped>

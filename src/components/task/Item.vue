@@ -10,11 +10,11 @@ const props = defineProps({
         <p>
             {{props.singleTask.title}}
         </p>
-      
+
     </template>
     <template #footer>
         <Button icon="pi pi-file-edit" severity="warning" aria-label="Edit" />
-        <Button icon="pi pi-trash" severity="danger" aria-label="Delete" />
+        <Button icon="pi pi-trash" severity="danger" aria-label="Delete" @click="props.singleTask.status='DELETED'" />
     </template>
 </Card>
 </template>

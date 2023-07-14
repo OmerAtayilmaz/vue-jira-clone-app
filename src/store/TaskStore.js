@@ -4,49 +4,46 @@ export const useTaskStore = defineStore('taskStore', {
     state: () => ({
         sections:[
             {
-                name:"BACKLOG",
+                name:"Backlog",
+                type:"BACKLOG",
                 tasks:[
                     {
                         id:1,
                         title: "Create a modal for notifications",
-                        status: "BACKLOG"
                     },
                     {
                         id:2,
                         title: "Add Pinia state management to App",
-                        status: "BACKLOG"
                     }
 
                 ],
             },
             {
-                name:"IN PROGRESS",
+                name:"In Progress",
+                type:"INPROGRESS",
                 tasks:[
                     {
                         id:3,
                         title: "Create a modal for notifications",
-                        status: "BACKLOG"
                     },
                     {
                         id:4,
                         title: "Add Pinia state management to App",
-                        status: "BACKLOG"
                     }
 
                 ],
             },
             {
-                name:"COMPLETED",
+                name:"Completed",
+                type: "COMPLETED",
                 tasks:[
                     {
                         id:5,
                         title: "Create a modal for notifications",
-                        status: "BACKLOG"
                     },
                     {
                         id:6,
                         title: "Add Pinia state management to App",
-                        status: "BACKLOG"
                     }
 
                 ],
@@ -57,13 +54,11 @@ export const useTaskStore = defineStore('taskStore', {
         getTasks:(state) => state.sections
     },
     actions:{
-         addTask:({ task }) => {
-        state.$patch( item => {
-            item.sections.push({
-                task:task,
-                status: 'BACKLOG'
-            });
-        })
+         addTask({ task, type }) {
+             this.sections.find(el => el.type === type).tasks.push({
+                 id:'new',
+                 title: task,
+             })
     }
     }
 })

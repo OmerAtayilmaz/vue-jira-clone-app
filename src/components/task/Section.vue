@@ -1,18 +1,22 @@
 <script setup>
 import Item from './Item.vue';
-import { ref } from "vue";
-const props = defineProps(["listData","title"]);
-console.log(props.listData)
-defineEmits(['openCreateItemModel'])
-const openCreateModal = ($e) => {
-    console.log($e);
-    this.$emit('openCreateItemModel');
+import {inject, ref} from "vue";
+const props = defineProps(["listData", "title", 'sectionType']);
+
+const emit = defineEmits(['openCreateItemModel', "updateModalStatus"])
+const newTaskType = inject("newTaskType");
+
+function openCreateModal(){
+  newTaskType.value = props.sectionType;
+  emit('openCreateItemModel');
+
 }
+
 </script>
 <template>
     <div class="col-2 section">
         <h4>{{ props.title }}</h4>
-        <Button label="Create Task" severity="secondary" text @click="$emit('updateModalStatus')" />
+        <Button label="Create Task" severity="secondary" text @click="openCreateModal()"   />
         <div class="section--tasks" >
             <item v-for="singleTask in listData" :key="singleTask.id" :single-task="singleTask"/>
         </div>
