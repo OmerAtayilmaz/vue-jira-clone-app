@@ -1,7 +1,8 @@
 <script setup>
 import Item from './Item.vue';
 import { ref } from "vue";
-const props = defineProps(["listData"]);
+const props = defineProps(["listData","title"]);
+console.log(props.listData)
 defineEmits(['openCreateItemModel'])
 const openCreateModal = ($e) => {
     console.log($e);
@@ -10,10 +11,10 @@ const openCreateModal = ($e) => {
 </script>
 <template>
     <div class="col-2 section">
-        <h4>{{ listData.name }}</h4>
+        <h4>{{ props.title }}</h4>
         <Button label="Create Task" severity="secondary" text @click="$emit('updateModalStatus')" />
         <div class="section--tasks" >
-            <item v-for="singleTask in listData.tasks" :key="singleTask.id" :single-task="singleTask"/>
+            <item v-for="singleTask in listData" :key="singleTask.id" :single-task="singleTask"/>
         </div>
     </div>
 </template>

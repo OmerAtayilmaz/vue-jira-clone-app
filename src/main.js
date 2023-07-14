@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 import { createRouter, createWebHistory } from 'vue-router';
 import { routes} from "./routes.js";
 
+import { createPinia } from 'pinia';
 //theme
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 
@@ -29,8 +30,11 @@ const router = createRouter({
     routes: routes,
 });
 
+const pinia = createPinia();
+
 const app = createApp(App);
 app.use(router);
+app.use(pinia);
 app.use(PrimeVue, { inputStyle: "filled" });
 app.component('Button', Button);
 app.component('Menubar', Menubar);
